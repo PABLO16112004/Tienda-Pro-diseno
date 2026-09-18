@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SublimaTex — sublimación, DTF, impresión y productos personalizados.">
+  <title>PRO DISEÑO — Impresión y sublimación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body class="theme-ronaldo">
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <div class="wrap topbar-wrap">
+      <span>Envíos a todo el país · Producción rápida · Atención personalizada</span>
+      <div class="topbar-links">
+        <a href="#cotizar">Ayuda</a>
+        <a href="#productos">Catálogo</a>
+        <a href="#proceso">Cómo funciona</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site" id="siteHeader">
+    <div class="wrap header-row">
+
+      <a href="#top" class="brand" aria-label="Pro Diseño inicio">
+        <img class="pro-diseno-logo" src="img/pro-diseno-logo.png" alt="PRO DISEÑO">
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#top">Inicio</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Nube ST</a>
+        <a href="#dtf">DTF</a>
+        <a href="#premium">Premium</a>
+        <a href="#cotizar">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar" aria-expanded="false">⌕</button>
+        <button class="icon-btn desktop-only" aria-label="Favoritos">☆</button>
+        <button class="icon-btn" id="cartToggle" aria-label="Ver carrito">
+          🛒<span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="login-btn desktop-only" id="loginBtn">
+          <span class="person-icon">♙</span>
+          Iniciar sesión
+        </button>
+        <button class="security-btn desktop-only" aria-label="Compra segura">✓</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-panel" id="searchPanel">
+      <div class="wrap">
+        <form id="searchForm">
+          <input type="search" placeholder="Buscar productos, DTF, sublimación..." aria-label="Buscar">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- CARRITO -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <header>
+      <strong>Tu pedido</strong>
+      <button class="icon-btn" id="closeCart" aria-label="Cerrar carrito">✕</button>
+    </header>
+    <div class="items" id="cartItems">
+      <p class="cart-empty">Todavía no agregaste productos.</p>
+    </div>
+    <footer>
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Ir a cotizar pedido</button>
+    </footer>
+  </aside>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-shape shape-one"></div>
+      <div class="hero-bg-shape shape-two"></div>
+      <div class="hero-bg-shape shape-three"></div>
+
+      <div class="wrap hero-wrap">
+
+        <div class="hero-copy">
+          <span class="hero-kicker" id="heroKicker">SUBLIMACIÓN · DTF · DISEÑO</span>
+
+          <h1 id="heroTitle">
+            Tu pedido listo en
+            <span>24 a 48 horas</span>
+          </h1>
+
+          <p class="hero-description" id="heroDescription">
+            Diseño gráfico, sublimación, calandrado y seguimiento online.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#cotizar" class="btn hero-btn">
+              Cotizar mi trabajo
+              <span>→</span>
+            </a>
+            <a href="#productos" class="hero-link">Ver productos</a>
+          </div>
+
+          <div class="hero-mini-info">
+            <span><b>✓</b> Calidad profesional</span>
+            <span><b>✓</b> Seguimiento online</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Promoción destacada">
+
+          <div class="hero-circle"></div>
+          <div class="hero-glow"></div>
+
+          <!-- TARJETAS DECORATIVAS -->
+          <div class="floating-card card-top" id="playerCard">
+            <div class="card-badge">ST</div>
+            <div class="card-player-mini">
+              <div class="mini-player-image" id="miniPlayerImage">
+                <span>Estilo</span>
+              </div>
+              <div class="mini-player-name" id="miniPlayerName">CRISTIANO RONALDO</div>
+            </div>
+          </div>
+
+          <div class="floating-card product-card product-card-one">
+            <div class="fake-product product-print">✦</div>
+            <div>
+              <strong>DTF</strong>
+              <small>Calidad</small>
+            </div>
+          </div>
+
+          <div class="floating-card product-card product-card-two">
+            <div class="fake-product product-box">▣</div>
+            <div>
+              <strong>Sublimación</strong>
+              <small>Colores intensos</small>
+            </div>
+          </div>
+
+          <div class="floating-card product-card product-card-three">
+            <div class="fake-product product-delivery">▱</div>
+            <div>
+              <strong>Envíos</strong>
+              <small>Seguimiento online</small>
+            </div>
+          </div>
+
+         <!-- JUGADOR -->
+<div class="player-wrap" id="playerWrap">
+  <div class="player-placeholder" id="playerPlaceholder">
+    <div class="player-number" id="playerNumber">7</div>
+    <div class="player-label" id="playerLabel">RONALDO</div>
+    <small>Coloca aquí la imagen del protagonista</small>
+  </div>
+  <img
+    id="playerImage"
+    class="player-image"
+    src="img/ronaldo.png"
+    alt="Cristiano Ronaldo"
+    onload="document.getElementById('playerPlaceholder').style.display='none';"
+    onerror="this.style.display='none';document.getElementById('playerPlaceholder').style.display='flex';"
+  >
+</div>
+            >
+          </div>
+
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-dot dot-one"></div>
+          <div class="hero-dot dot-two"></div>
+          <div class="hero-dot dot-three"></div>
+        </div>
+      </div>
+
+      <div class="hero-slider" aria-label="Cambiar protagonista">
+        <button class="slider-dot active" data-slide="0" aria-label="Mostrar Cristiano Ronaldo"></button>
+        <button class="slider-dot" data-slide="1" aria-label="Mostrar baloncesto"></button>
+        <button class="slider-dot" data-slide="2" aria-label="Mostrar persona"></button>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services section-light" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">LO QUE HACEMOS</span>
+            <h2>Todo para llevar tu diseño a otro nivel.</h2>
+          </div>
+          <p>Desde la idea hasta el producto terminado, reunimos impresión, personalización y producción en un solo lugar.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card service-main">
+            <span class="service-icon">✦</span>
+            <h3>Sublimación</h3>
+            <p>Impresión de alta calidad para prendas, textiles y productos personalizados.</p>
+            <a href="#cotizar">Conocer servicio →</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon"></span>
+            <h3>DTF</h3>
+            <p>Transferencias listas para aplicar con gran definición y color.</p>
+            <a href="#dtf">Ver DTF →</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon"></span>
+            <h3>Diseño Personalizado</h3>
+            <p>Detalles precisos para proyectos creativos y comerciales.</p>
+            <a href="#cotizar">Cotizar →</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon"></span>
+            <h3>Diseño gráfico</h3>
+            <p>Te ayudamos a preparar el arte para que salga correctamente impreso.</p>
+            <a href="#cotizar">Hablar con nosotros →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categories" id="categorias">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">TIENDA</span>
+            <h2>Encuentra lo que necesitas.</h2>
+          </div>
+          <p>Materiales, productos sublimables e insumos para crear.</p>
+        </div>
+
+        <div class="cat-grid">
+          <a href="#productos" class="cat-card cat-1">
+            <span class="cat-number">01</span>
+            <div>
+              <span class="icon">◫</span>
+              <h3>Telas técnicas</h3>
+              <span>Poliéster, piqué, gabardina</span>
+            </div>
+          </a>
+
+          <a href="#productos" class="cat-card cat-2">
+            <span class="cat-number">02</span>
+            <div>
+              <span class="icon">☕</span>
+              <h3>Blanks sublimables</h3>
+              <span>Tazas, textil y cerámica</span>
+            </div>
+          </a>
+
+          <a href="#productos" class="cat-card cat-3">
+            <span class="cat-number">03</span>
+            <div>
+              <span class="icon">▣</span>
+              <h3>Insumos de impresión</h3>
+              <span>Tintas, papel y prensas</span>
+            </div>
+          </a>
+
+          <a href="#cotizar" class="cat-card cat-4">
+            <span class="cat-number">04</span>
+            <div>
+              <span class="icon">✎</span>
+              <h3>Diseño a medida</h3>
+              <span>Servicio para tu marca</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="products" id="productos">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">CATÁLOGO</span>
+            <h2>Productos destacados.</h2>
+          </div>
+          <p>Una selección de productos para empezar tu próximo proyecto.</p>
+        </div>
+
+        <div class="prod-grid" id="prodGrid"></div>
+
+        <div class="products-foot">
+          <a href="#cotizar" class="btn btn-outline">Ver catálogo completo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits" id="premium">
+      <div class="wrap benefit-grid">
+        <div class="benefit">
+          <span class="benefit-icon">↗</span>
+          <div><strong>Producción rápida</strong><p>Pedidos listos en tiempos claros.</p></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
+          <div><strong>Calidad constante</strong><p>Colores y acabados cuidados.</p></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">▱</span>
+          <div><strong>Seguimiento online</strong><p>Consulta el estado de tu pedido.</p></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">♡</span>
+          <div><strong>Atención personalizada</strong><p>Te acompañamos durante el proceso.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DTF -->
+    <section class="process" id="dtf">
+      <div class="wrap process-wrap">
+        <div class="process-copy">
+          <span class="section-kicker light">DTF · NUBE ST</span>
+          <h2>Tu diseño. Nuestro proceso. Un resultado que se nota.</h2>
+          <p>Preparamos el archivo, producimos la impresión y te acompañamos hasta que el pedido llegue a tus manos.</p>
+          <a href="#cotizar" class="btn btn-light">Solicitar cotización →</a>
+        </div>
+
+        <div class="process-steps">
+          <div class="step">
+            <span>01</span>
+            <h3>Envías tu diseño</h3>
+            <p>Recibimos tu archivo y revisamos sus características.</p>
+          </div>
+          <div class="step">
+            <span>02</span>
+            <h3>Producimos</h3>
+            <p>Aplicamos el proceso adecuado para tu proyecto.</p>
+          </div>
+          <div class="step">
+            <span>03</span>
+            <h3>Despachamos</h3>
+            <p>Te informamos el estado y seguimiento del pedido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials" id="testimonios">
+      <div class="wrap">
+        <div class="testimonial-box">
+          <span class="quote-mark">“</span>
+          <div class="t-slides">
+            <div class="t-slide active">
+              <p>Encontramos el material que necesitábamos y el pedido llegó en el tiempo esperado.</p>
+              <span>Cliente PRO DISEÑO</span>
+            </div>
+            <div class="t-slide">
+              <p>Nos ayudaron a preparar un diseño complicado para impresión y el resultado quedó excelente.</p>
+              <span>Cliente PRO DISEÑO</span>
+            </div>
+            <div class="t-slide">
+              <p>La posibilidad de hacer seguimiento al pedido nos facilita mucho el trabajo.</p>
+              <span>Cliente PRO DISEÑO</span>
+            </div>
+          </div>
+          <div class="t-dots" id="tDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COTIZACIÓN -->
+    <section class="quote" id="cotizar">
+      <div class="wrap quote-wrap">
+        <div class="quote-copy">
+          <span class="section-kicker">HABLEMOS</span>
+          <h2>Cuéntanos qué quieres imprimir.</h2>
+          <p>Déjanos tus datos y una descripción del proyecto. Te contactaremos para revisar materiales, cantidades y tiempos.</p>
+
+          <ul>
+            <li>✓ Respuesta personalizada</li>
+            <li>✓ Orientación sobre materiales</li>
+            <li>✓ Cotización según cantidad</li>
+            <li>✓ Seguimiento del pedido</li>
+          </ul>
+        </div>
+
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div class="form-success" id="formSuccess">Recibimos tu consulta. Te contactaremos pronto.</div>
+
+          <div class="field-row">
+            <div class="field" id="f-name">
+              <label for="q-name">Nombre y apellido</label>
+              <input type="text" id="q-name" required>
+              <span class="err-msg">Ingresa tu nombre.</span>
+            </div>
+            <div class="field" id="f-email">
+              <label for="q-email">Email</label>
+              <input type="email" id="q-email" required>
+              <span class="err-msg">Ingresa un email válido.</span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="q-phone">Teléfono</label>
+              <input type="tel" id="q-phone">
+            </div>
+            <div class="field">
+              <label for="q-type">Servicio</label>
+              <select id="q-type">
+                <option>Sublimación</option>
+                <option>DTF</option>
+                <option>Diseño gráfico</option>
+                <option>Corte láser</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="f-message">
+            <label for="q-message">Cuéntanos sobre tu proyecto</label>
+            <textarea id="q-message" required></textarea>
+            <span class="err-msg">Cuéntanos brevemente qué necesitas.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Enviar consulta →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="wrap newsletter-wrap">
+        <div>
+          <span class="section-kicker light">PRO DISEÑO</span>
+          <h3>Novedades, promociones y nuevos productos.</h3>
+          <p>Un correo ocasional con información útil para tus proyectos.</p>
+        </div>
+        <form id="newsForm">
+          <input type="email" placeholder="tu@email.com" required aria-label="Email">
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="brand" aria-label="Pro Diseño inicio">
+            <img class="pro-diseno-logo footer-logo" src="img/pro-diseno-logo.png" alt="PRO DISEÑO">
+          </a>
+          <p>Soluciones de impresión y personalización para marcas, emprendimientos y proyectos creativos.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+            <a href="#" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Tienda</h4>
+          <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#categorias">Categorías</a></li>
+            <li><a href="#dtf">DTF</a></li>
+            <li><a href="#premium">Premium</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Sublimación</a></li>
+            <li><a href="#servicios">Diseño gráfico</a></li>
+            <li><a href="#servicios">Diseño Personalizado</a></li>
+            <li><a href="#cotizar">Cotización</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#cotizar">Contacto</a></li>
+            <li><a href="#proceso">Cómo funciona</a></li>
+            <li><a href="#cotizar">Seguimiento</a></li>
+            <li><a href="#cotizar">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PRO DISEÑO — Todos los derechos reservados.</p>
+        <div class="pay-icons"><span>Visa</span><span>Mastercard</span><span>Transferencia</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"><span class="toast-dot"></span><span id="toastMsg"></span></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================
+     DATOS DEL HERO
+     ========================= */
+  const heroSlides = [
+    {
+      theme: "theme-ronaldo",
+      kicker: "DISEÑO · PERSONALIZACIÓN · CALIDAD",
+      title: "Haz que tu diseño",
+      highlight: "se vea profesional",
+      description: "Diseños deportivos, prendas personalizadas y estampados inspirados en el mundo del fútbol.",
+      player: "ronaldo.png",
+      name: "CRISTIANO RONALDO",
+      number: "7",
+      label: "RONALDO"
+    },
+    {
+      theme: "theme-basketball",
+      kicker: "ESTILO · DTF · SUBLIMACIÓN",
+      title: "Lleva tu pasión por el",
+      highlight: "Deporte a tus prendas",
+      description: "Personaliza camisetas, textiles y productos con diseños inspirados en el deporte.",
+      player: "basketball.png", 
+      name: "BASKETBALL",
+      number: "23",
+      label: "service"
+    },
+    {
+      theme: "theme-person",
+      kicker: "RAPIDEZ· SERVICIO · ST",
+      title: "Tu estilo también",
+      highlight: "puede llevar tu sello",
+      description: "Crea productos personalizados para ti, tu equipo, tu emprendimiento o tu marca.",
+      player: "persona.png",
+      name: "TU ESTILO",
+      number: "01",
+      label: "PERSONA"
+    }
+  ];
+
+  let heroIndex = 0;
+  let heroTimer;
+  let heroAnimating = false;
+
+  const body = document.body;
+  const hero = document.getElementById("hero");
+  const heroKicker = document.getElementById("heroKicker");
+  const heroTitle = document.getElementById("heroTitle");
+  const heroDescription = document.getElementById("heroDescription");
+  const playerImage = document.getElementById("playerImage");
+  const playerPlaceholder = document.getElementById("playerPlaceholder");
+  const playerNumber = document.getElementById("playerNumber");
+  const playerLabel = document.getElementById("playerLabel");
+  const miniPlayerName = document.getElementById("miniPlayerName");
+  const miniPlayerImage = document.getElementById("miniPlayerImage");
+  const dots = document.querySelectorAll(".slider-dot");
+
+  function updateHero(index, initial = false){
+    const slide = heroSlides[index];
+
+    if(!initial && heroAnimating) return;
+    heroAnimating = true;
+
+    if(!initial){
+      hero.classList.add("hero-changing");
+      setTimeout(() => {
+        body.classList.remove("theme-ronaldo", "theme-basketball", "theme-person");
+        body.classList.add(slide.theme);
+
+        heroKicker.textContent = slide.kicker;
+        heroTitle.innerHTML = slide.title + " <span>" + slide.highlight + "</span>";
+        heroDescription.textContent = slide.description;
+        playerNumber.textContent = slide.number;
+        playerLabel.textContent = slide.label;
+        miniPlayerName.textContent = slide.name;
+        miniPlayerImage.innerHTML = "<span>" + slide.label + "</span>";
+
+        playerPlaceholder.style.display = "flex";
+        playerImage.style.display = "block";
+        playerImage.src = "img/" + slide.player;
+
+        hero.classList.remove("hero-changing");
+        hero.classList.add("hero-entering");
+
+        setTimeout(() => {
+          hero.classList.remove("hero-entering");
+          heroAnimating = false;
+        }, 700);
+      }, 380);
+    } else {
+      body.classList.remove("theme-ronaldo", "theme-basketball", "theme-person");
+      body.classList.add(slide.theme);
+      heroKicker.textContent = slide.kicker;
+      heroTitle.innerHTML = slide.title + " <span>" + slide.highlight + "</span>";
+      heroDescription.textContent = slide.description;
+      playerNumber.textContent = slide.number;
+      playerLabel.textContent = slide.label;
+      miniPlayerName.textContent = slide.name;
+      miniPlayerImage.innerHTML = "<span>" + slide.label + "</span>";
+      playerImage.src = "img/" + slide.player;
+      heroAnimating = false;
+    }
+
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+  }
+
+  playerImage.addEventListener("error", function(){
+    this.style.display = "none";
+    playerPlaceholder.style.display = "flex";
+  });
+
+  playerImage.addEventListener("load", function(){
+    playerPlaceholder.style.display = "none";
+    this.style.display = "block";
+  });
+
+  function nextHero(){
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    updateHero(heroIndex);
+  }
+
+  function startHeroTimer(){
+    clearInterval(heroTimer);
+    heroTimer = setInterval(nextHero, 6000);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      heroIndex = i;
+      updateHero(heroIndex);
+      startHeroTimer();
+    });
+  });
+
+  updateHero(0, true);
+  startHeroTimer();
+
+  /* =========================
+     PRODUCTOS
+     ========================= */
+  const products = [
+    {id:1,name:"Piqué poliéster blanco",meta:"Rollo x 25m · Tela técnica",price:38500,tag:"Nuevo",color1:"#20b9ef",color2:"#0968d8",image:"img/productos/Piqueblanco.avif"},
+    {id:2,name:"Taza cerámica 11oz",meta:"Blank sublimable",price:2200,tag:null,color1:"#8d24ff",color2:"#5311b8",image:"img/productos/Tazaceramica.webp"},
+    {id:3,name:"Gabardina premium",meta:"Rollo x 25m · Tela técnica",price:41200,tag:null,color1:"#f1c73a",color2:"#d37b00",image:"img/productos/gabardina.jpeg"},
+    {id:4,name:"Remera sublimable",meta:"Talles S–XXL",price:3100,tag:"Más vendido",color1:"#111827",color2:"#3b82f6",image:"img/productos/remerasublimable.webp"},
+    {id:5,name:"Papel transfer A3",meta:"Pack x 100 hojas",price:15800,tag:null,color1:"#ef4444",color2:"#991b1b",image:"img/productos/papeltransfer.webp"},
+    {id:6,name:"Mouse pad sublimable",meta:"22x18cm · Blank",price:1800,tag:null,color1:"#18c7d9",color2:"#1769e0",image:"img/productos/mousepad.webp"},
+    {id:7,name:"Tinta sublimación CMYK",meta:"Set x 4 · 100ml c/u",price:22900,tag:"Nuevo",color1:"#7c3aed",color2:"#db2777",image:"img/productos/tinta.avif"},
+    {id:8,name:"Lienzo poliéster mate",meta:"Rollo x 25m",price:35700,tag:null,color1:"#f59e0b",color2:"#dc2626",image:"img/productos/lienzopoliestermate.avif"}
+  ];
+
+  const fmt = n => "$" + n.toLocaleString("es-CO");
+  const grid = document.getElementById("prodGrid");
+
+  grid.innerHTML = products.map(p => `
+    <article class="prod-card">
+      <div class="prod-image" style="--p1:${p.color1};--p2:${p.color2};">
+        ${p.image ? `
+        <img class="product-photo" src="${p.image}" alt="${p.name}">
+        ` : `
+        <div class="product-art">
+          <span>ST</span>
+          <small>SUBLIMATEX</small>
+        </div>
+        `}
+        ${p.tag ? `<span class="tag">${p.tag}</span>` : ""}
+      </div>
+      <div class="prod-body">
+        <h3>${p.name}</h3>
+        <span class="meta">${p.meta}</span>
+        <div class="prod-foot">
+          <span class="price">${fmt(p.price)}</span>
+          <button class="add-btn" data-id="${p.id}" aria-label="Agregar ${p.name} al carrito">+</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  /* =========================
+     CARRITO
+     ========================= */
+  let cart = [];
+  const cartCount = document.getElementById("cartCount");
+  const cartItemsEl = document.getElementById("cartItems");
+  const cartSubtotal = document.getElementById("cartSubtotal");
+  const cartDrawer = document.getElementById("cartDrawer");
+  const overlay = document.getElementById("overlay");
+
+  function renderCart(){
+    if(cart.length === 0){
+      cartItemsEl.innerHTML = '<p class="cart-empty">Todavía no agregaste productos.</p>';
+    } else {
+      cartItemsEl.innerHTML = cart.map(item => {
+        const p = products.find(pr => pr.id === item.id);
+        return `
+          <div class="cart-item">
+            <div class="swatch" style="background:linear-gradient(135deg,${p.color1},${p.color2});"></div>
+            <div class="info">
+              <strong>${p.name}</strong>
+              <span>${item.qty} × ${fmt(p.price)}</span>
+            </div>
+            <button data-remove="${p.id}">Quitar</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    const totalQty = cart.reduce((s,i) => s + i.qty, 0);
+    const subtotal = cart.reduce((s,i) => s + i.qty * products.find(p => p.id === i.id).price, 0);
+    cartCount.textContent = totalQty;
+    cartSubtotal.textContent = fmt(subtotal);
+  }
+
+  function showToast(msg){
+    const toast = document.getElementById("toast");
+    document.getElementById("toastMsg").textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(window.toastTimer);
+    window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+  }
+
+  grid.addEventListener("click", e => {
+    const btn = e.target.closest(".add-btn");
+    if(!btn) return;
+
+    const id = Number(btn.dataset.id);
+    const existing = cart.find(i => i.id === id);
+    if(existing) existing.qty++;
+    else cart.push({id, qty:1});
+
+    renderCart();
+    const p = products.find(pr => pr.id === id);
+    showToast(`${p.name} agregado al carrito`);
+  });
+
+  cartItemsEl.addEventListener("click", e => {
+    const btn = e.target.closest("[data-remove]");
+    if(!btn) return;
+    cart = cart.filter(i => i.id !== Number(btn.dataset.remove));
+    renderCart();
+  });
+
+  function openCart(){
+    cartDrawer.classList.add("open");
+    overlay.classList.add("open");
+    cartDrawer.setAttribute("aria-hidden","false");
+  }
+
+  function closeCart(){
+    cartDrawer.classList.remove("open");
+    overlay.classList.remove("open");
+    cartDrawer.setAttribute("aria-hidden","true");
+  }
+
+  document.getElementById("cartToggle").addEventListener("click", openCart);
+  document.getElementById("closeCart").addEventListener("click", closeCart);
+  document.getElementById("checkoutBtn").addEventListener("click", () => {
+    closeCart();
+    document.getElementById("cotizar").scrollIntoView({behavior:"smooth"});
+  });
+
+  /* =========================
+     MENÚ MÓVIL
+     ========================= */
+  const hamburger = document.getElementById("hamburger");
+  const mainNav = document.getElementById("mainNav");
+
+  function closeNav(){
+    mainNav.classList.remove("open");
+    hamburger.setAttribute("aria-expanded","false");
+    overlay.classList.remove("open");
+  }
+
+  hamburger.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    overlay.classList.toggle("open", isOpen);
+  });
+
+  mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+  overlay.addEventListener("click", () => {
+    closeCart();
+    closeNav();
+  });
+
+  /* =========================
+     BUSCADOR
+     ========================= */
+  const searchToggle = document.getElementById("searchToggle");
+  const searchPanel = document.getElementById("searchPanel");
+
+  searchToggle.addEventListener("click", () => {
+    const open = searchPanel.classList.toggle("open");
+    searchToggle.setAttribute("aria-expanded", String(open));
+  });
+
+  document.getElementById("searchForm").addEventListener("submit", e => {
+    e.preventDefault();
+    showToast("Búsqueda simulada — conecta aquí tu catálogo real.");
+  });
+
+  /* =========================
+     TESTIMONIOS
+     ========================= */
+  const slides = document.querySelectorAll(".t-slide");
+  const dotsWrap = document.getElementById("tDots");
+  let currentTestimonial = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.setAttribute("aria-label", "Testimonio " + (i + 1));
+    if(i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showTestimonial(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function showTestimonial(i){
+    slides[currentTestimonial].classList.remove("active");
+    dotsWrap.children[currentTestimonial].classList.remove("active");
+    currentTestimonial = i;
+    slides[currentTestimonial].classList.add("active");
+    dotsWrap.children[currentTestimonial].classList.add("active");
+  }
+
+  setInterval(() => {
+    showTestimonial((currentTestimonial + 1) % slides.length);
+  }, 5000);
+
+  /* =========================
+     FORMULARIOS
+     ========================= */
+  const quoteForm = document.getElementById("quoteForm");
+  const formSuccess = document.getElementById("formSuccess");
+
+  quoteForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    let valid = true;
+
+    const checks = [
+      ["f-name","q-name", value => value.trim().length > 1],
+      ["f-email","q-email", value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)],
+      ["f-message","q-message", value => value.trim().length > 4]
+    ];
+
+    checks.forEach(([fieldId,inputId,test]) => {
+      const field = document.getElementById(fieldId);
+      const input = document.getElementById(inputId);
+      const ok = test(input.value);
+      field.classList.toggle("error", !ok);
+      if(!ok) valid = false;
+    });
+
+    if(!valid) return;
+
+    formSuccess.classList.add("show");
+    quoteForm.reset();
+    document.querySelectorAll(".field.error").forEach(f => f.classList.remove("error"));
+    showToast("Consulta enviada correctamente");
+  });
+
+  document.getElementById("newsForm").addEventListener("submit", e => {
+    e.preventDefault();
+    showToast("¡Gracias por suscribirte!");
+    e.target.reset();
+  });
+
+  document.getElementById("loginBtn").addEventListener("click", () => {
+    showToast("Área de inicio de sesión — conectar con tu sistema.");
+  });
+
+  renderCart();
+})();
+</script>
+
+</body>
+</html>

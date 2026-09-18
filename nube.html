@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nube ST — configurador visual de prendas personalizadas de SublimaTex.">
+  <title>Nube ST — Configurador de prendas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body class="theme-ronaldo">
+
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <div class="wrap topbar-wrap">
+      <span>Envíos a todo el país · Producción rápida · Atención personalizada</span>
+      <div class="topbar-links">
+        <a href="html.html#cotizar">Ayuda</a>
+        <a href="tienda.html">Catálogo</a>
+        <a href="html.html#proceso">Cómo funciona</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site" id="siteHeader">
+    <div class="wrap header-row">
+
+      <a href="html.html" class="brand" aria-label="Pro Diseño inicio">
+        <img class="pro-diseno-logo" src="img/pro-diseno-logo.png" alt="PRO DISEÑO">
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="html.html#top">Inicio</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="html.html#servicios">Servicios</a>
+        <a href="nube.html">Nube ST</a>
+        <a href="html.html#dtf">DTF</a>
+        <a href="html.html#premium">Premium</a>
+        <a href="html.html#cotizar">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar" aria-expanded="false">⌕</button>
+        <button class="icon-btn desktop-only" aria-label="Favoritos">☆</button>
+        <button class="icon-btn" id="cartToggle" aria-label="Ver carrito">
+          🛒<span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="login-btn desktop-only" id="loginBtn">
+          <span class="person-icon">♙</span>
+          Iniciar sesión
+        </button>
+        <button class="security-btn desktop-only" aria-label="Compra segura">✓</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-panel" id="searchPanel">
+      <div class="wrap">
+        <form id="searchForm">
+          <input type="search" placeholder="Buscar productos, DTF, sublimación..." aria-label="Buscar">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- CARRITO -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <header>
+      <strong>Tu pedido</strong>
+      <button class="icon-btn" id="closeCart" aria-label="Cerrar carrito">✕</button>
+    </header>
+    <div class="items" id="cartItems">
+      <p class="cart-empty">Todavía no agregaste productos.</p>
+    </div>
+    <footer>
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Ir a cotizar pedido</button>
+    </footer>
+  </aside>
+
+  <main id="top">
+
+    <!-- NUBE ST — CONFIGURADOR DE PRENDAS -->
+    <section class="configurator" id="nube-st">
+      <div class="wrap">
+        <span class="section-kicker">NUBE ST</span>
+        <h1>Personalizá tu prenda</h1>
+        <p class="config-intro">Elegí el modelo, el color y la talla, subí tu diseño y mirá cómo queda aplicado antes de pedirlo.</p>
+
+        <div class="config-layout">
+
+          <!-- ESCENARIO / PREVIEW -->
+          <div class="config-stage">
+
+            <div class="config-back" id="configBack" hidden>
+              <button type="button" id="backToShirts">← Volver a camisetas</button>
+            </div>
+
+            <div class="config-canvases" id="configCanvases">
+              <div class="config-canvas-card active" data-gender="men">
+                <canvas id="canvasMen" width="380" height="460"></canvas>
+                <span class="config-canvas-label">Modelo hombre</span>
+              </div>
+              <div class="config-canvas-card" data-gender="women">
+                <canvas id="canvasWomen" width="380" height="460"></canvas>
+                <span class="config-canvas-label">Modelo mujer</span>
+              </div>
+            </div>
+
+            <div class="config-canvas-single" id="configSingle" hidden>
+              <canvas id="canvasSingle" width="380" height="460"></canvas>
+              <span class="config-canvas-label" id="singleLabel">Prenda</span>
+            </div>
+
+            <p class="config-hint">Arrastrá tu diseño sobre la prenda para ubicarlo. Usá los controles de la derecha para ajustar tamaño y rotación.</p>
+          </div>
+
+          <!-- CONTROLES -->
+          <div class="config-controls">
+
+            <div class="config-group">
+              <h4>Color de la prenda</h4>
+              <div class="config-colors" id="garmentColors"></div>
+            </div>
+
+            <div class="config-group">
+              <h4>Talla</h4>
+              <div class="config-sizes" id="sizeOptions"></div>
+            </div>
+
+            <div class="config-group">
+              <h4>Tela</h4>
+              <select id="fabricSelect" class="config-select">
+                <option>Algodón Jersey</option>
+                <option>Poliéster Deportivo</option>
+                <option>Piqué Premium</option>
+                <option>Algodón Peinado 24/1</option>
+              </select>
+            </div>
+
+            <div class="config-group">
+              <h4>Tu diseño</h4>
+              <label class="upload-btn" for="designUpload">📤 Subir imagen o logo</label>
+              <input type="file" id="designUpload" accept="image/*" hidden>
+
+              <div class="design-tools" id="designTools" hidden>
+                <label>Tamaño
+                  <input type="range" id="designScale" min="20" max="220" value="90">
+                </label>
+                <label>Rotación
+                  <input type="range" id="designRotate" min="0" max="360" value="0">
+                </label>
+                <button type="button" id="removeDesign" class="mini-btn">Quitar diseño</button>
+              </div>
+            </div>
+
+            <div class="config-row">
+              <div class="config-group">
+                <h4>Cantidad</h4>
+                <input type="number" id="qtyInput" class="config-select" min="1" value="1">
+              </div>
+            </div>
+
+            <div class="config-group">
+              <h4>Comentario (opcional)</h4>
+              <textarea id="commentInput" class="config-select" rows="3" placeholder="Ej: quiero el logo más grande, en la espalda..."></textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="finalizeDesign">Finalizar diseño y enviar</button>
+            <p class="config-hint">Se genera un PDF con el resumen de tu pedido para que lo envíes a SublimaTex.</p>
+          </div>
+        </div>
+
+        <!-- MÁS PRENDAS PERSONALIZABLES -->
+        <div class="config-more">
+          <h3>Más prendas personalizables</h3>
+          <div class="config-more-grid" id="moreGarments"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="html.html" class="brand" aria-label="Pro Diseño inicio">
+            <img class="pro-diseno-logo footer-logo" src="img/pro-diseno-logo.png" alt="PRO DISEÑO">
+          </a>
+          <p>Soluciones de impresión y personalización para marcas, emprendimientos y proyectos creativos.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="WhatsApp">WA</a>
+            <a href="#" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Tienda</h4>
+          <ul>
+            <li><a href="tienda.html">Productos</a></li>
+            <li><a href="html.html#categorias">Categorías</a></li>
+            <li><a href="html.html#dtf">DTF</a></li>
+            <li><a href="html.html#premium">Premium</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="html.html#servicios">Sublimación</a></li>
+            <li><a href="html.html#servicios">Diseño gráfico</a></li>
+            <li><a href="html.html#servicios">Diseño Personalizado</a></li>
+            <li><a href="html.html#cotizar">Cotización</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="html.html#cotizar">Contacto</a></li>
+            <li><a href="html.html#proceso">Cómo funciona</a></li>
+            <li><a href="html.html#cotizar">Seguimiento</a></li>
+            <li><a href="html.html#cotizar">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 PRO DISEÑO — Todos los derechos reservados.</p>
+        <div class="pay-icons"><span>Visa</span><span>Mastercard</span><span>Transferencia</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"><span class="toast-dot"></span><span id="toastMsg"></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     CARRITO / MENÚ / BUSCADOR (mismo comportamiento que el resto del sitio)
+     ========================================================= */
+  let cart = [];
+  const cartCount = document.getElementById("cartCount");
+  const cartItemsEl = document.getElementById("cartItems");
+  const cartSubtotal = document.getElementById("cartSubtotal");
+  const cartDrawer = document.getElementById("cartDrawer");
+  const overlay = document.getElementById("overlay");
+
+  function renderCart(){
+    if(cart.length === 0){
+      cartItemsEl.innerHTML = '<p class="cart-empty">Todavía no agregaste productos.</p>';
+    }
+    cartCount.textContent = cart.reduce((s,i) => s + i.qty, 0);
+    cartSubtotal.textContent = "$0";
+  }
+
+  function notify(msg){
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+    toastMsg.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+  }
+
+  function openCart(){
+    cartDrawer.classList.add("open");
+    overlay.classList.add("open");
+    cartDrawer.setAttribute("aria-hidden","false");
+  }
+
+  function closeCart(){
+    cartDrawer.classList.remove("open");
+    overlay.classList.remove("open");
+    cartDrawer.setAttribute("aria-hidden","true");
+  }
+
+  document.getElementById("cartToggle").addEventListener("click", openCart);
+  document.getElementById("closeCart").addEventListener("click", closeCart);
+  document.getElementById("checkoutBtn").addEventListener("click", () => {
+    closeCart();
+    window.location.href = "html.html#cotizar";
+  });
+
+  const hamburger = document.getElementById("hamburger");
+  const mainNav = document.getElementById("mainNav");
+
+  function closeNav(){
+    mainNav.classList.remove("open");
+    hamburger.setAttribute("aria-expanded","false");
+    overlay.classList.remove("open");
+  }
+
+  hamburger.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    overlay.classList.toggle("open", isOpen);
+  });
+
+  overlay.addEventListener("click", () => {
+    closeCart();
+    closeNav();
+  });
+
+  const searchToggle = document.getElementById("searchToggle");
+  const searchPanel = document.getElementById("searchPanel");
+
+  searchToggle.addEventListener("click", () => {
+    const open = searchPanel.classList.toggle("open");
+    searchToggle.setAttribute("aria-expanded", String(open));
+  });
+
+  document.getElementById("searchForm").addEventListener("submit", e => {
+    e.preventDefault();
+    window.location.href = "tienda.html";
+  });
+
+  document.getElementById("loginBtn").addEventListener("click", () => {
+    notify("Área de inicio de sesión — conectar con tu sistema.");
+  });
+
+  renderCart();
+
+  /* =========================================================
+     SILUETAS DE PRENDAS (dibujadas 100% en Canvas)
+     Cada prenda se define por puntos del lado derecho
+     (offsets desde el eje central), que se espejan para
+     dibujar el lado izquierdo automáticamente.
+     ========================================================= */
+
+  function drawPolygon(ctx, cx, cy, pts, color){
+    ctx.beginPath();
+    ctx.moveTo(cx + pts[0][0]*0.35, cy + pts[0][1] - 10);
+    ctx.quadraticCurveTo(cx, cy + pts[0][1] + 14, cx - pts[0][0]*0.35, cy + pts[0][1] - 10);
+    for(let i=0;i<pts.length;i++){
+      ctx.lineTo(cx - pts[i][0], cy + pts[i][1]);
+    }
+    const hem = pts[pts.length-1];
+    ctx.lineTo(cx + hem[0], cy + hem[1]);
+    for(let i=pts.length-2;i>=0;i--){
+      ctx.lineTo(cx + pts[i][0], cy + pts[i][1]);
+    }
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    const grad = ctx.createLinearGradient(cx-160, cy, cx+160, cy);
+    grad.addColorStop(0, "rgba(0,0,0,.10)");
+    grad.addColorStop(0.5, "rgba(255,255,255,.10)");
+    grad.addColorStop(1, "rgba(0,0,0,.10)");
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgba(0,0,0,.18)";
+    ctx.stroke();
+  }
+
+  const SHAPES = {
+    "tshirt-men":{
+      label:"Camiseta Hombre",
+      pts:[[46,4],[112,18],[152,60],[150,112],[92,120],[100,235],[96,320],[108,420]]
+    },
+    "tshirt-women":{
+      label:"Camiseta Mujer",
+      pts:[[40,4],[98,16],[134,54],[132,100],[80,110],[78,220],[70,300],[92,415]]
+    },
+    "oversized":{
+      label:"Oversized",
+      pts:[[52,10],[130,26],[172,80],[168,140],[112,148],[120,250],[122,340],[140,430]]
+    },
+    "sport":{
+      label:"Deportiva",
+      pts:[[44,4],[108,16],[146,56],[144,104],[90,114],[96,225],[92,310],[104,415]],
+      stripe:true
+    },
+    "longsleeve":{
+      label:"Manga larga",
+      pts:[[44,4],[108,16],[146,56],[150,300],[90,114],[96,225],[92,310],[104,415]]
+    },
+    "hoodie":{
+      label:"Hoodie",
+      pts:[[50,10],[124,24],[164,72],[160,130],[104,140],[112,245],[112,335],[128,425]],
+      hood:true,
+      pocket:true
+    }
+  };
+
+  function drawGarment(canvas, type, color){
+    const ctx = canvas.getContext("2d");
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+
+    const cx = W/2, cy = 60;
+    const shape = SHAPES[type] || SHAPES["tshirt-men"];
+    const pts = shape.pts;
+
+    drawPolygon(ctx, cx, cy, pts, color);
+
+    if(shape.hood){
+      ctx.beginPath();
+      ctx.ellipse(cx, cy+2, 58, 34, 0, Math.PI, 0);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,.18)";
+      ctx.stroke();
+      ctx.fillStyle = "rgba(255,255,255,.85)";
+      ctx.fillRect(cx-18, cy+30, 4, 30);
+      ctx.fillRect(cx+14, cy+30, 4, 30);
+    }
+
+    if(shape.pocket){
+      ctx.strokeStyle = "rgba(0,0,0,.25)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(cx-60, cy+250);
+      ctx.lineTo(cx-40, cy+280);
+      ctx.lineTo(cx+40, cy+280);
+      ctx.lineTo(cx+60, cy+250);
+      ctx.stroke();
+    }
+
+    if(shape.stripe){
+      ctx.fillStyle = "rgba(255,255,255,.55)";
+      ctx.fillRect(cx-100, cy+115, 10, 300);
+      ctx.fillRect(cx+90, cy+115, 10, 300);
+    }
+  }
+
+  function drawShorts(canvas, color){
+    const ctx = canvas.getContext("2d");
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+    const cx = W/2, cy = 90;
+
+    ctx.beginPath();
+    ctx.moveTo(cx-95, cy);
+    ctx.lineTo(cx+95, cy);
+    ctx.lineTo(cx+95, cy+55);
+    ctx.lineTo(cx+30, cy+230);
+    ctx.lineTo(cx+8, cy+230);
+    ctx.lineTo(cx+6, cy+70);
+    ctx.lineTo(cx-6, cy+70);
+    ctx.lineTo(cx-8, cy+230);
+    ctx.lineTo(cx-30, cy+230);
+    ctx.lineTo(cx-95, cy+55);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.strokeStyle = "rgba(0,0,0,.18)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = "rgba(255,255,255,.5)";
+    ctx.fillRect(cx-95, cy-8, 190, 12);
+  }
+
+  /* =========================================================
+     ESTADO GENERAL DEL CONFIGURADOR
+     ========================================================= */
+  const COLORS = ["#111827","#ffffff","#dc2626","#2563eb","#16a34a","#f59e0b","#7c3aed","#6b7280"];
+  const SIZES = ["S","M","L","XL","XXL"];
+
+  const state = {
+    mode:"tshirt",
+    activeGender:"men",
+    currentType:"tshirt-men",
+    color:"#111827",
+    size:"M",
+    design:null
+  };
+
+  const canvasMen = document.getElementById("canvasMen");
+  const canvasWomen = document.getElementById("canvasWomen");
+  const canvasSingle = document.getElementById("canvasSingle");
+  const configCanvases = document.getElementById("configCanvases");
+  const configSingleWrap = document.getElementById("configSingle");
+  const configBack = document.getElementById("configBack");
+  const singleLabel = document.getElementById("singleLabel");
+
+  function getActiveCanvas(){
+    if(state.mode === "other") return canvasSingle;
+    return state.activeGender === "men" ? canvasMen : canvasWomen;
+  }
+
+  function drawDesignOnCanvas(canvas){
+    if(!state.design) return;
+    const ctx = canvas.getContext("2d");
+    const d = state.design;
+    const w = d.img.width * (d.scale/100) * 0.6;
+    const h = d.img.height * (d.scale/100) * 0.6;
+
+    ctx.save();
+    ctx.translate(d.x, d.y);
+    ctx.rotate(d.rotation * Math.PI/180);
+    ctx.drawImage(d.img, -w/2, -h/2, w, h);
+    ctx.restore();
+  }
+
+  function renderAll(){
+    if(state.mode === "tshirt"){
+      drawGarment(canvasMen, "tshirt-men", state.color);
+      drawGarment(canvasWomen, "tshirt-women", state.color);
+      drawDesignOnCanvas(getActiveCanvas());
+    } else {
+      if(state.currentType === "shorts") drawShorts(canvasSingle, state.color);
+      else drawGarment(canvasSingle, state.currentType, state.color);
+      drawDesignOnCanvas(canvasSingle);
+    }
+  }
+
+  document.querySelectorAll(".config-canvas-card").forEach(card => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".config-canvas-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      state.activeGender = card.dataset.gender;
+      state.currentType = "tshirt-" + card.dataset.gender;
+      renderAll();
+    });
+  });
+
+  const colorsWrap = document.getElementById("garmentColors");
+  colorsWrap.innerHTML = COLORS.map((c,i) => `
+    <button type="button" class="${i===0?"active":""}" data-color="${c}" style="background:${c}" aria-label="Color ${c}"></button>
+  `).join("");
+
+  colorsWrap.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      colorsWrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.color = btn.dataset.color;
+      renderAll();
+    });
+  });
+
+  const sizesWrap = document.getElementById("sizeOptions");
+  sizesWrap.innerHTML = SIZES.map((s,i) => `
+    <button type="button" class="${i===1?"active":""}" data-size="${s}">${s}</button>
+  `).join("");
+
+  sizesWrap.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      sizesWrap.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.size = btn.dataset.size;
+    });
+  });
+
+  /* =========================================================
+     SUBIR / MOVER / ESCALAR / ROTAR DISEÑO
+     ========================================================= */
+  const designUpload = document.getElementById("designUpload");
+  const designTools = document.getElementById("designTools");
+  const designScale = document.getElementById("designScale");
+  const designRotate = document.getElementById("designRotate");
+
+  designUpload.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = getActiveCanvas();
+        state.design = {
+          img,
+          x: canvas.width/2,
+          y: canvas.height/2 + 40,
+          scale: Number(designScale.value),
+          rotation: 0
+        };
+        designTools.hidden = false;
+        renderAll();
+        notify("Diseño cargado. Arrastralo sobre la prenda para ubicarlo.");
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  designScale.addEventListener("input", () => {
+    if(!state.design) return;
+    state.design.scale = Number(designScale.value);
+    renderAll();
+  });
+
+  designRotate.addEventListener("input", () => {
+    if(!state.design) return;
+    state.design.rotation = Number(designRotate.value);
+    renderAll();
+  });
+
+  document.getElementById("removeDesign").addEventListener("click", () => {
+    state.design = null;
+    designTools.hidden = true;
+    renderAll();
+  });
+
+  let dragging = false;
+
+  function bindDrag(canvas){
+    function getPos(e){
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      const point = e.touches ? e.touches[0] : e;
+      return {
+        x: (point.clientX - rect.left) * scaleX,
+        y: (point.clientY - rect.top) * scaleY
+      };
+    }
+
+    function start(e){
+      if(!state.design) return;
+      if(canvas !== getActiveCanvas()) return;
+      const pos = getPos(e);
+      const d = state.design;
+      const dist = Math.hypot(pos.x - d.x, pos.y - d.y);
+      if(dist < 120) dragging = true;
+    }
+
+    function move(e){
+      if(!dragging || !state.design) return;
+      e.preventDefault();
+      const pos = getPos(e);
+      state.design.x = pos.x;
+      state.design.y = pos.y;
+      renderAll();
+    }
+
+    function end(){ dragging = false; }
+
+    canvas.addEventListener("mousedown", start);
+    canvas.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", end);
+
+    canvas.addEventListener("touchstart", start, {passive:true});
+    canvas.addEventListener("touchmove", move, {passive:false});
+    canvas.addEventListener("touchend", end);
+  }
+
+  [canvasMen, canvasWomen, canvasSingle].forEach(bindDrag);
+
+  /* =========================================================
+     CATÁLOGO — MÁS PRENDAS PERSONALIZABLES
+     ========================================================= */
+  const MORE_GARMENTS = [
+    {type:"oversized", label:"Camiseta Oversized"},
+    {type:"sport", label:"Camiseta Deportiva"},
+    {type:"longsleeve", label:"Manga Larga"},
+    {type:"hoodie", label:"Hoodie"},
+    {type:"shorts", label:"Pantaloneta"},
+    {type:"tshirt-women", label:"Camiseta Mujer"}
+  ];
+
+  const moreWrap = document.getElementById("moreGarments");
+  moreWrap.innerHTML = MORE_GARMENTS.map((g,i) => `
+    <div class="config-more-card" data-type="${g.type}">
+      <canvas width="140" height="170" id="more-${i}"></canvas>
+      <span>${g.label}</span>
+    </div>
+  `).join("");
+
+  MORE_GARMENTS.forEach((g,i) => {
+    const c = document.getElementById("more-"+i);
+    if(g.type === "shorts") drawShorts(c, "#9ca3af");
+    else drawGarment(c, g.type, "#9ca3af");
+  });
+
+  moreWrap.querySelectorAll(".config-more-card").forEach(card => {
+    card.addEventListener("click", () => {
+      state.mode = "other";
+      state.currentType = card.dataset.type;
+      state.design = null;
+      designTools.hidden = true;
+
+      configCanvases.hidden = true;
+      configSingleWrap.hidden = false;
+      configBack.hidden = false;
+
+      const found = MORE_GARMENTS.find(g => g.type === card.dataset.type);
+      singleLabel.textContent = found ? found.label : "Prenda";
+
+      renderAll();
+      document.getElementById("nube-st").scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+
+  document.getElementById("backToShirts").addEventListener("click", () => {
+    state.mode = "tshirt";
+    state.currentType = "tshirt-" + state.activeGender;
+    state.design = null;
+    designTools.hidden = true;
+
+    configCanvases.hidden = false;
+    configSingleWrap.hidden = true;
+    configBack.hidden = true;
+
+    renderAll();
+  });
+
+  /* =========================================================
+     FINALIZAR DISEÑO → GENERAR PDF
+     ========================================================= */
+  document.getElementById("finalizeDesign").addEventListener("click", () => {
+    const canvas = getActiveCanvas();
+    const preview = canvas.toDataURL("image/png");
+
+    const garmentLabel = state.mode === "tshirt"
+      ? (state.activeGender === "men" ? "Camiseta Hombre" : "Camiseta Mujer")
+      : (MORE_GARMENTS.find(g => g.type === state.currentType)?.label || state.currentType);
+
+    const fabric = document.getElementById("fabricSelect").value;
+    const qty = document.getElementById("qtyInput").value || 1;
+    const comment = document.getElementById("commentInput").value || "Sin comentarios adicionales.";
+
+    if(!window.jspdf){
+      notify("No se pudo cargar el generador de PDF. Revisá tu conexión.");
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({unit:"pt", format:"a4"});
+
+    doc.setFontSize(18);
+    doc.setFont(undefined, "bold");
+    doc.text("Nube ST — Pedido de prenda personalizada", 40, 50);
+
+    doc.setDrawColor(220);
+    doc.line(40, 62, 555, 62);
+
+    doc.addImage(preview, "PNG", 40, 80, 220, 260);
+
+    doc.setFontSize(12);
+    let y = 90;
+    const line = (label, value) => {
+      doc.setFont(undefined, "bold");
+      doc.text(label + ":", 300, y);
+      doc.setFont(undefined, "normal");
+      doc.text(String(value), 400, y);
+      y += 24;
+    };
+
+    line("Prenda", garmentLabel);
+    line("Color", state.color);
+    line("Talla", state.size);
+    line("Tela", fabric);
+    line("Cantidad", qty);
+    line("Diseño cargado", state.design ? "Sí" : "No");
+
+    doc.setFont(undefined, "bold");
+    doc.text("Comentario del cliente:", 40, 370);
+    doc.setFont(undefined, "normal");
+    doc.text(doc.splitTextToSize(comment, 500), 40, 388);
+
+    doc.setFontSize(10);
+    doc.setTextColor(140);
+    doc.text("Generado automáticamente desde el configurador Nube ST — SublimaTex.", 40, 800);
+
+    doc.save("pedido-nube-st.pdf");
+
+    const body = encodeURIComponent(
+      `Hola, quiero enviar un nuevo pedido personalizado desde Nube ST.\n\n` +
+      `Prenda: ${garmentLabel}\nColor: ${state.color}\nTalla: ${state.size}\nTela: ${fabric}\nCantidad: ${qty}\n\n` +
+      `Comentario: ${comment}\n\n` +
+      `(Adjuntá el PDF que se acaba de descargar a tu computadora antes de enviar este correo.)`
+    );
+    window.open(`mailto:admin@sublimatex.com.ar?subject=${encodeURIComponent("Nuevo pedido personalizado — Nube ST")}&body=${body}`, "_blank");
+
+    notify("¡Listo! Se descargó el PDF de tu pedido y se abrió tu correo para enviarlo.");
+  });
+
+  renderAll();
+})();
+</script>
+
+</body>
+</html>
